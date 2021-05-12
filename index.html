@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="content">
+    <ul class="filter">
+      <li class="item active" data-filter="todos">TODOS</li>
+      <li class="item" data-filter="acerto">ACERTOS</li>
+      <li class="item" data-filter="duvida">DÚVIDAS</li>
+      <li class="item" data-filter="erro">ERROS</li>
+    </ul>
+
+    <ul class="itens">
+      <li class="item acerto"><img src="./2.jpg" alt=""></li>
+      <li class="item acerto"><img src="./2.jpg" alt=""></li>
+      <li class="item erro"><img src="./1.jpg" alt=""></li>
+      <li class="item erro"><img src="./1.jpg" alt=""></li>
+      <li class="item duvida"><img src="./3.jpg" alt=""></li>
+      <li class="item duvida"><img src="./3.jpg" alt=""></li>
+      <li class="item duvida"><img src="./3.jpg" alt=""></li>
+    </ul>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".filter .item").click(function(){
+        $(this).addClass("active").siblings().removeClass("active")
+        $(".itens").fadeOut()
+        setTimeout(function(){
+          $(".itens").fadeIn()
+        }, 700)
+
+        let value = $(this).attr("data-filter")
+
+        setTimeout(function(){
+
+          if(value == "todos") {
+            $(".itens .item").show("500")
+          } else {
+            $(".itens .item").not("." + value).hide("500")
+            $(".itens .item").filter("." + value).show("500")
+
+          }
+  
+        }, 350)
+      })
+    })
+  </script>
+  
+</body>
+</html>
