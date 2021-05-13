@@ -11,8 +11,6 @@ img {
   height: 100px;
 }
 
-
-
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -61,4 +59,11 @@ body {
 
 .filter .item.active {
   opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+  .filter {
+    flex-direction: column;
+    text-align: center;
+  }
 }
